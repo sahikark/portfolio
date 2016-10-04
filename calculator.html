@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Calculator">
+    <meta name="author" content="Sahithya">
+    <title>Calculator by Sahithya</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        #background {
+            min-width:260px;
+            width: 100%;
+            margin-left: 15px;
+        }
+
+        #result {
+            display: block;
+            font-family: sans-serif;
+            width: 252px;
+            height:70px;
+            text-align: right;
+            border: 0;
+            background: #3b3535;
+            color: #fff;
+            padding-top: 20px;
+            font-size: 30px;
+            margin-bottom: 10px;
+            outline: none;
+            overflow: hidden;
+            letter-spacing: 4px;
+            position: relative;
+            top: 10px;
+            border-radius: 2px;
+        }
+
+            #result:hover {
+                cursor: text;
+            }
+
+        .btn {
+            margin: 2px 0px;
+            border-radius: 2px;
+            min-width: 60px;
+            height: 60px;
+        }
+
+        .btn-wide {
+            width: 124px;
+        }
+
+        .btn-delete {
+            width: 188px;
+        }
+
+        .btn-grey {
+            background-color: #ddd;
+            border-color: #bbb;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <!-- Main background -->
+        <div class="row">
+            <div class="col-lg-4">
+                <div id="result"></div>
+
+                <div id="main">
+                    <div id="first-rows" class="calc-row">
+                        <button class="btn btn-default btn-lg btn-delete btn-grey" id="delete">Clear</button>
+                        <button value="+" class="btn btn-warning btn-lg operator">+</button>
+                    </div>
+
+                    <div class="calc-row">
+
+                        <button value="7" class="btn btn-default btn-lg num">7</button>
+                        <button value="8" class="btn btn-default btn-lg num">8</button>
+                        <button value="9" class="btn btn-default btn-lg num">9</button>
+                        <button value="-" class="btn btn-warning btn-lg operator">-</button>
+                    </div>
+
+                    <div class="calc-row">
+                        <button value="4" class="btn btn-default btn-lg num">4</button>
+                        <button value="5" class="btn btn-default btn-lg num">5</button>
+                        <button value="6" class="btn btn-default btn-lg num">6</button>
+                        <button value="*" class="btn btn-warning btn-lg operator">x</button>
+                    </div>
+
+                    <div class="calc-row">
+                        <button value="1" class="btn btn-default btn-lg num">1</button>
+                        <button value="2" class="btn btn-default btn-lg num">2</button>
+                        <button value="3" class="btn btn-default btn-lg num">3</button>
+                        <button value="/" class="btn btn-warning btn-lg operator">/</button>
+                    </div>
+
+                    <div class="calc-row">
+                        <button value="0" class="btn btn-default btn-lg btn-wide num">0</button>
+                        <button value="." class="btn btn-default btn-lg period">.</button>
+                        <button value="=" class="btn btn-warning btn-lg eqn align" id="equals">=</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+
+            var current,
+                screen,
+                output,
+                limit,
+                zero,
+                period,
+                operator;
+
+            screen = document.getElementById("result");
+
+            var elem = document.querySelectorAll(".num");
+
+            var len = elem.length;
+
+            for (var i = 0; i < len; i++) {
+
+                elem[i].addEventListener("click", function () {
+
+                    num = this.value;
+
+                    output = screen.innerHTML += num;
+
+                    limit = output.length;
+
+                    if (limit > 16) {
+
+                        alert("Sorry no more input is allowed");
+
+                    }
+
+                }, false);
+
+            }
+
+            document.querySelector(".period").addEventListener("click", function () {
+
+                period = this.value;
+
+                if (screen.innerHTML === "") {
+
+                    output = screen.innerHTML = screen.innerHTML.concat("0.");
+
+                }
+
+                else if (screen.innerHTML === output) {
+
+                    screen.innerHTML = screen.innerHTML.concat(".");
+
+                }
+
+            }, false);
+
+            document.querySelector("#equals").addEventListener("click", function () {
+
+                if (screen.innerHTML === output) {
+
+                    screen.innerHTML = eval(output);
+                }
+
+                else {
+                    screen.innerHTML = "";
+                }
+
+            }, false);
+
+            document.querySelector("#delete").addEventListener("click", function () {
+
+                screen.innerHTML = "";
+
+            }, false);
+
+
+            var elem1 = document.querySelectorAll(".operator");
+
+            var len1 = elem1.length;
+
+            for (var i = 0; i < len1; i++) {
+
+                elem1[i].addEventListener("click", function () {
+
+                    operator = this.value;
+
+                    if (screen.innerHTML === "") {
+
+                        screen.innerHTML = screen.innerHTML.concat("");
+
+                    }
+
+                    else if (output) {
+
+                        screen.innerHTML = output.concat(operator);
+
+                    }
+
+                }, false);
+
+            }
+        }
+    </script>
+</body>
+</html>

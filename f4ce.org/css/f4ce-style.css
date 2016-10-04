@@ -1,0 +1,115 @@
+﻿body {
+    font: 14px/1.4em "Source Sans Pro",tahoma,helvetica,arial,sans-serif;
+    padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+#logo-holder {
+    padding: 10px;
+}
+
+    #logo-holder h1 {
+        display: inline;
+        vertical-align: middle;
+        padding-left: 10px;
+        font-size: 20px;
+    }
+
+.navbar {
+    border-radius: 0px;
+}
+
+.navbar-brand {
+        padding: 5px;
+    }
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #dddddd;
+    font-family: "Source Sans Pro";
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+   background-color:#2a2730;
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+section#info-boxes h2 {
+    color: #333;
+    padding-left: 0px;
+    font-size:24px;
+}
+
+section#info-boxes h2 i {
+    color: #ffc957;
+    padding-right: 10px;
+}
+
+footer {
+    background-color: #2a2730;
+    color: #99979c;
+    margin-top: 100px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+    footer a {
+        color: #ffffff;
+    }
+
+    footer .copyright {
+        margin-top: 20px;
+    }
+    .btn-info {
+        background-color:#f4ce53;
+    }
+    .btn-apply{ margin-top:20px;}
+.btn {
+    border-radius:0px;
+}
+.form-control {
+    border-radius:0px;
+}
+.banner-apply {
+     background-color: #2a2730;
+    color:#fff;
+}
+
+
+.img-center {
+	margin: 0 auto;
+}
+
+
+@media(min-width:768px) {
+    body{
+    padding-top: 0px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+}
+
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    #logo-holder h1 {
+        font-size: 36px;
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 8px 0;
+    }
+
+}
+
